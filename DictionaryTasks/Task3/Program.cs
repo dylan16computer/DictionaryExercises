@@ -12,7 +12,8 @@ namespace Task3
         {
             Random digits = new Random();
             Dictionary<int, Person> personDictionary = new Dictionary<int, Person>();
-            for(int i = 0; i < 5; i++)
+            int i = 0;
+            for(i = 0; i < 5; i++)
             {
                 Console.WriteLine($"Enter person {i + 1}'s first name: ");
                 string firstName = Console.ReadLine();
@@ -22,9 +23,11 @@ namespace Task3
                 int age = int.Parse(Console.ReadLine());
                 personDictionary.Add(digits.Next(1000, 9999), new Person(firstName, lastName, age));
             }
-            for(int i = 0; i < 5; i++)
+            i = 0;
+            foreach(KeyValuePair<int, Person> person in personDictionary)
             {
-                Console.WriteLine($"Person {i+1}:\nID: {personDictionary.Keys.ElementAt(i)}\nDetails: {personDictionary.Values.ElementAt(i)}");
+                i += 1;
+                Console.WriteLine($"Person {i+1}:\nID: {personDictionary.Keys.ElementAt(i)}\nFirst Name: {personDictionary.Values.ElementAt(i).FirstName}\nLast Name: {personDictionary.Values.ElementAt(i).LastName}\nAge: {personDictionary.Values.ElementAt(i).Age}");
             }
         }
     }
