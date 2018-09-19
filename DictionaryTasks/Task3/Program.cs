@@ -12,22 +12,22 @@ namespace Task3
         {
             Random digits = new Random();
             Dictionary<int, Person> personDictionary = new Dictionary<int, Person>();
-            int i = 0;
-            for(i = 0; i < 5; i++)
+            for(int i = 0; i < 5; i++)
             {
-                Console.WriteLine($"Enter person {i + 1}'s first name: ");
+                Console.Write($"Enter person {i + 1}'s first name: ");
                 string firstName = Console.ReadLine();
-                Console.WriteLine($"Enter person {i + 1}'s last name: ");
+                Console.Write($"Enter person {i + 1}'s last name: ");
                 string lastName = Console.ReadLine();
-                Console.WriteLine($"Enter person {i + 1}'s age ");
+                Console.Write($"Enter person {i + 1}'s age: ");
                 int age = int.Parse(Console.ReadLine());
                 personDictionary.Add(digits.Next(1000, 9999), new Person(firstName, lastName, age));
             }
-            i = 0;
-            foreach(KeyValuePair<int, Person> person in personDictionary)
+            int j = -1;
+            foreach (KeyValuePair<int, Person> person in personDictionary)
             {
-                i += 1;
-                Console.WriteLine($"Person {i+1}:\nID: {personDictionary.Keys.ElementAt(i)}\nFirst Name: {personDictionary.Values.ElementAt(i).FirstName}\nLast Name: {personDictionary.Values.ElementAt(i).LastName}\nAge: {personDictionary.Values.ElementAt(i).Age}");
+                j += 1;
+                Console.WriteLine($"\n--- Person {j+1} details ---");
+                Console.WriteLine($"     ID: {personDictionary.Keys.ElementAt(j)}\n     First Name: {personDictionary.Values.ElementAt(j).FirstName}\n     Last Name: {personDictionary.Values.ElementAt(j).LastName}\n     Age: {personDictionary.Values.ElementAt(j).Age}");
             }
         }
     }
